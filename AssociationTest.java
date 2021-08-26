@@ -1,121 +1,63 @@
+/*
+  Gold smith - gm 100 gm   500gm gold
+  Milkman - litre
+  Grocery -- kgs
 
-public class AssociationTest {
-	public static void main(String[] args) {
-		/*int age = 20;
-		char gender = 'F';
-		String name = "Julie";
-		
-		System.out.println("[age    ]: "+age);
-		System.out.println("[gender ]: "+gender);
-		System.out.println("[name   ]: "+name);
-		
-		int age1 = 42;
-		char gender1 = 'M';
-		String name1 = "Vijay";
-		
-		System.out.println("[age    ]: "+age1);
-		System.out.println("[gender ]: "+gender1);
-		System.out.println("[name   ]: "+name1);
-		
-		int age2 = 35;
-		char gender2 = 'F';
-		String name2 = "Pratima";
-		
-		System.out.println("[age    ]: "+age2);
-		System.out.println("[gender ]: "+gender2);
-		System.out.println("[name   ]: "+name2);
-		*/
+  Java -- class
 
-		Person p1 = new Person(); //make an object out of the design
-		Person p2 = new Person();
-		Person p3 = new Person();
-		
-		p1.setPerson('F', 22, "Julie","Dsouza"); //set the object
-		p1.vc.setVoterCard("123123123","Govt Of Nepal","Julie D");
-		p1.showPerson();			//print the object contents
-		
-		p2.setPerson('M',34, "Vijay","Shreshta");
-		p2.vc.setVoterCard("223223223","Govt Of America","Vijay S");
-		p2.showPerson();
-		
-		p3.setPerson('F',30, "Pratima","Shreshta");
-		p3.vc.setVoterCard("423423423","Govt Of America","Pratima VS");
-		p3.showPerson();
-	}
-}
+ */
 
-class VoterCard
-{
-	String votingCardNumber;
-	String issuedBy;
-	String voterName;
-	
-	void setVoterCard(String vcn, String ib, String vn) {
-		votingCardNumber = vcn;
-		issuedBy = ib;
-		voterName=vn;
-	}
-	void showVoterCard() {
-		System.out.println("[Voting Card Number    : ] "+votingCardNumber);  //intelliJ is rapid as compared to eclipse 
-		System.out.println("[Voting Card Issued by : ] "+issuedBy);  
-		System.out.println("[Voter name            : ] "+voterName);  
-	}
-	
+public class AssociationTest { //isA - hasA  - usesA -  producesA
+    public static void main(String[] args) {
+        System.out.println("hello world");
+       // Heart theHeartObj = new Heart();
+        Person thePersonObj = new Person();
+        thePersonObj.talking();
+        thePersonObj.talking(30);
+        thePersonObj.talking(10,"Julie");
+        thePersonObj.talking("Smith");
+        thePersonObj.talking("Sita",90);
+        thePersonObj.myHeart.pumping();
+        System.out.println("-----------------");
+        Student theStudentObj = new Student(); //
+        theStudentObj.myHeart.pumping();
+        theStudentObj.talking();
+        theStudentObj.talking(45);
+        theStudentObj.studying();
+    }
 }
-class Animal // every animal is not  mammal
-{
-	
+class Heart {
+    void pumping() {
+        System.out.println("Heart is pumping...");
+    }
 }
-class Mammal extends Animal //but every mammal is an animal		isA
-{						//every mammal is not a humam
-	
+class Person {
+    Heart myHeart = new Heart(); //hasA - vital part of any Person
+    //function overloading, we can write multiple functions with same name, but they should be
+    //differentiated based on following lines
+    //1. type of parameter/argument
+    //2. number of parameters/arguments
+    //3. sequence of parameters/arguments
+    //is return type included in this overloading ???
+    void talking() {
+        System.out.println("Person is talking...");
+    }
+    void talking(int i) {
+        System.out.println("Person is talking...for "+i+" minutes");
+    }
+    void talking(String name) {
+        System.out.println("Person is talking...with "+name);
+    }
+    void talking(int i, String name) {
+        System.out.println("Person is talking...with "+name+" for "+i+" minutes");
+    }
+    void talking(String name,int i) {
+        System.out.println("Person is talking...with "+name+" for "+i+" minutes");
+    }
 }
-class Human extends Mammal // every human is a mammal			isA
-{
-	
+class Student extends Person  {//isA - every Student isA (has to be) Person
+    void studying() {
+        System.out.println("Student is studying....");
+    }
 }
-class Person extends Human 									//	 isA
-{
-	char gender; //data memebr - field 
-	int age;	 //data
-	String name; //data
-	String surname;
-	VoterCard vc= new VoterCard();  //hasA relationship
-	//mutator
-	void setPerson(char g, int a, String n, String sn) { //member methods - functions
-		gender = g;
-		age = a;
-		name = n;
-		surname = sn;
-	}
-	//accessor - read only contract
-	void showPerson() {
-		System.out.println("[gender  ] "+gender);
-		System.out.println("[age     ] "+age);
-		System.out.println("[name    ] "+name);
-		System.out.println("[surname ] "+surname);
-		vc.showVoterCard();
-		System.out.println("-------------------------------");
-	}
-}
-
-class Student extends Person {
-	
-}
-class Employee extends Student {
-	
-}
-class Executive extends Employee {
-	
-}
-class Manager extends Executive {		
-	
-}
-class Director extends Manager { // seminar only for Director
-	
-}
-class Founder extends Director {
-	
-}
-
 
