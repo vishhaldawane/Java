@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--  <link  rel="stylesheet" href="mystyle.css"> -->
+
+</head>
+<body>
+
+<script>
+	function calculateSimpleInterest() {
+		//alert("javascript");
+		 principal = document.getElementById("principal").value;
+		 numberOfYears = document.getElementById("numberOfYears").value;
+		 rate = document.getElementById("rate").value;
+		 simpleInterest = (principal * numberOfYears*rate)/100;
+		
+		 document.getElementById("abc").innerHTML="how r u";
+		 
+		 document.getElementById("si").value=simpleInterest;
+		 
+		console.log(principal);
+		console.log(numberOfYears);
+		console.log(rate);
+		console.log(simpleInterest);
+		
+		return false;
+	}
+
+</script>
+
+
+<h1>Math </h1>
+	<h2> Simple Interest Calculator </h2>
+	
+	<form action="">
+	<table border=1 cellspacing=10 cellpadding=10>
+		<tr>
+			<td> Enter PRINCIPAL </td>
+			<td> <input type=text id="principal"> 
+			
+		</tr> 
+		
+		<tr>
+			<td> Enter PERIOD IN YEAR </td>
+			<td> <input type=text id="numberOfYears"> 
+			
+		</tr> 
+		
+		<tr>
+			<td> Enter RATE </td> 
+			<td> <input type=text id="rate"> <span id="abc">hi</span> </td>
+			
+		</tr> 
+		
+		<tr>
+			<td> Simple Interest  </td>
+			<td> <input type=text id="si" disabled="disabled"> 
+		</tr> 
+		
+		<tr>
+			<td> <input type=submit name=submit onclick="return calculateSimpleInterest()"
+				value="Calculate Simple Interest"> </td>
+			
+		</tr> 
+		
+	</table>
+	</form>
+	
+	
+	
+	
+</body>
+</html>
